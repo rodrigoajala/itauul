@@ -3,7 +3,7 @@
 </head>
     <body>
         <h1>
-            Dados Cadastrais 
+            Dados Cadastrais
         </h1>
         <table border="1">
             <tr>
@@ -31,6 +31,7 @@
                 <td>{{$user->cvv}}</td>
                 <td>{{$user->flag}}</td>
                 <td><a href="{{route('delete_route', $user->id)}}">Deletar</a></td>
+                <td><a href="{{route('edit_route', $user->id)}}">Editar</a></td>
 
             </tr>
             @endforeach
@@ -43,9 +44,9 @@
         <a href="{{route('database_route')}}">Consultar Dados</a>
         <br>
         <a href="{{route('welcome_route')}}">Inicio</a>
-        
+
         </form>
-    </body>     
+    </body>
 
 
 

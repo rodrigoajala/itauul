@@ -1,31 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\CardController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get
-('/', [UserController::class, 'index'])->name('index');
+('/', [CardController::class, 'index'])->name('index');
 
 Route::post
-('/confirmacao',[UserController::class, 'confirmation_method'])->name('confirmation_route');
+('/confirmacao',[CardController::class, 'confirmation_method'])->name('confirmation_route');
 
 Route::get
-('/welcome',[UserController::class, 'welcome_method'])->name('welcome_route');
+('/welcome',[CardController::class, 'welcome_method'])->name('welcome_route');
 
 Route::get(
-'/dadosdeusuarios',[UserController::class, 'database_method'])->name('database_route');
+'/dadosdeusuarios',[CardController::class, 'database_method'])->name('database_route');
 
 Route::get(
-'/dadosdeusuarios/{id}',[UserController::class, 'delete_method'])->name('delete_route');
+'/dadosdeusuarios/{id}',[CardController::class, 'delete_method'])->name('delete_route');
+
+Route::get(
+    '/dadosdeusuarios/edit/{id}', [CardController::class, 'edit_method'])->name('edit_route');
+
+Route::post(
+    '/dadosdeusuarios/edit/store', [CardController::class, 'edit_store_method'])->name('edit_store_route');

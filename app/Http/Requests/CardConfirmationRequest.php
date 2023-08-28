@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserConfirmationRequest extends FormRequest
+class CardConfirmationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,6 @@ class UserConfirmationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required',
             'account_holder' => 'required',
             'taxpayer_registry' => 'required',
             'card_number' => 'required',
