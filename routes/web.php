@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
 
+/** Rotas Web */
+
 Route::get(
     '/', [CardController::class, 'index'])->name('index');
 
