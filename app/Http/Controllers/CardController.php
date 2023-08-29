@@ -16,7 +16,6 @@ class CardController extends Controller
 
     public function confirmation_method(CardConfirmationRequest $request)
     {
-        // dd($request->all());
         $data = $request->all();
         Card::create([
             'account_holder' => $data['account_holder'],
