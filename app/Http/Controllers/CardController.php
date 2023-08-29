@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\CardConfirmationRequest;
 use App\Http\Requests\CardUpdateRequest;
 use App\Models\Card;
@@ -15,9 +14,8 @@ class CardController extends Controller
         return view('welcome');
     }
 
-    public function confirmation_method (CardConfirmationRequest $request)
+    public function confirmation_method(CardConfirmationRequest $request)
     {
-        // dd($request->all());
         $data = $request->all();
         Card::create([
             'account_holder' => $data['account_holder'],
@@ -29,20 +27,19 @@ class CardController extends Controller
             'flag' => $data['flag']
         ]);
         return view('confirmation', ['data' => $request->only(
-            'account_holder','taxpayer_registry','card_number','month_validity','expiry_year', 'cvv','flag'
+            'account_holder',
+            'taxpayer_registry',
+            'card_number',
+            'month_validity',
+            'expiry_year',
+            'cvv',
+            'flag'
         )]);
-    }
-
-    public function welcome_method()
-    {
-        return view('welcome');
     }
 
     public function database_method()
     {
         $users = Card::all();
-
-        // dd($users);
         return view('Database', ['users' => $users]);
     }
 
@@ -57,7 +54,7 @@ class CardController extends Controller
     public function edit_method($id)
     {
         $data = Card::find($id);
-        return view('edit', ['data'=>$data]);
+        return view('edit', ['data' => $data]);
     }
 
     public function edit_store_method(CardUpdateRequest $request)
@@ -75,9 +72,5 @@ class CardController extends Controller
 
         $users = Card::all();
         return view('Database', ['users' => $users]);
-
     }
-
-
-
 }
